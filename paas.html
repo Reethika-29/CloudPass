@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IaaS, PaaS, SaaS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: #f0f0f0;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        nav {
+            background: #ffcc00;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
+        }
+
+        .section {
+            padding: 100px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f7f7f7;
+            transition: all 0.5s;
+            transform: translateY(100px);
+            opacity: 0;
+        }
+
+        #iaas {
+            background: linear-gradient(135deg, #ff6666, #ffcc99);
+        }
+
+        #paas {
+            background: linear-gradient(135deg, #66ccff, #99ff99);
+        }
+
+        #saas {
+            background: linear-gradient(135deg, #ff99ff, #66ffff);
+        }
+
+        .section.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .content {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#iaas">IaaS</a></li>
+            <li><a href="#paas">PaaS</a></li>
+            <li><a href="#saas">SaaS</a></li>
+        </ul>
+    </nav>
+
+    <!-- Section for IaaS -->
+    <section id="iaas" class="section">
+        <div class="content">
+            <h2>Infrastructure as a Service (IaaS)</h2>
+            <p>IaaS provides virtualized computing resources over the internet. It offers virtual machines, storage, and
+                networking capabilities. Popular providers: AWS, Microsoft Azure, Google Cloud.</p>
+        </div>
+    </section>
+
+    <!-- Section for PaaS -->
+    <section id="paas" class="section">
+        <div class="content">
+            <h2>Platform as a Service (PaaS)</h2>
+            <p>PaaS provides a platform allowing developers to build, run, and manage applications without the
+                complexity of infrastructure. Examples: Heroku, Google App Engine.</p>
+        </div>
+    </section>
+
+    <!-- Section for SaaS -->
+    <section id="saas" class="section">
+        <div class="content">
+            <h2>Software as a Service (SaaS)</h2>
+            <p>SaaS delivers software over the internet. It eliminates the need to install and run software on
+                individual devices. Popular SaaS examples: Gmail, Microsoft Office 365, Salesforce.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 IaaS, PaaS, SaaS Portfolio</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', revealSections);
+
+        function revealSections() {
+            const sections = document.querySelectorAll('.section');
+            const revealPoint = window.innerHeight / 1.2;
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < revealPoint) {
+                    section.classList.add('active');
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
