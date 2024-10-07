@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+<div class="container">
+  <h1 class="my-4">Project List</h1>
+  <a href="/create" class="btn btn-primary mb-4">Create New Project</a>
+  <div class="row">
+    <% projects.forEach(project => { %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= project.title %></h5>
+            <p class="card-text"><%= project.description %></p>
+            <a href="/edit/<%= project._id %>" class="btn btn-warning">Edit</a>
+            <form action="/delete/<%= project._id %>" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+<%- include('partials/footer') %>
